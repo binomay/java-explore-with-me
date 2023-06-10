@@ -36,7 +36,7 @@ public class StatServiceImpl implements StatService {
     @Override
     public List<OutStatDto> getStats(LocalDateTime startDate, LocalDateTime endDate, List<String> uris, Boolean isUnique) {
         List<StatData> tmpList;
-        if(isUnique) {
+        if (isUnique) {
             tmpList = repository.getStatDataWithUniqueIp(uris, startDate, endDate);
         } else {
             tmpList = repository.getStatData(uris, startDate, endDate);

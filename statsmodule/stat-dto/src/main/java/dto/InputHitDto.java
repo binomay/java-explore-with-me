@@ -28,6 +28,6 @@ public class InputHitDto {
     private String ip;
 
     @NotNull(message = "Не указана дата запроса!")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime timestamp;
 }

@@ -25,7 +25,7 @@ public class StatController {
         this.service = service;
     }
 
-    @PostMapping( "/hit" )
+    @PostMapping("/hit")
     @ResponseStatus(code = HttpStatus.CREATED)
     public ResponseEntity<Object> createHit(@RequestBody @Valid InputHitDto inputHitDto) {
         log.info("Логирую запрос: {}", inputHitDto);
@@ -33,11 +33,11 @@ public class StatController {
     }
 
     @GetMapping("/stats")
-    public ResponseEntity<Object> getBookingsForUser(@RequestParam( name = "start" ) @DateTimeFormat( pattern = "yyyy-MM-dd HH:mm:ss" ) LocalDateTime startDate,
-                                                     @RequestParam( name = "end" ) @DateTimeFormat( pattern = "yyyy-MM-dd HH:mm:ss" ) LocalDateTime endDate,
-                                                     @RequestParam( name = "uris", required = false ) ArrayList<String> uris,
-                                                     @RequestParam( name = "unique", defaultValue = "false" ) Boolean isUnique) {
+    public ResponseEntity<Object> getBookingsForUser(@RequestParam(name = "start") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startDate,
+                                                     @RequestParam(name = "end") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endDate,
+                                                     @RequestParam(name = "uris", required = false) ArrayList<String> uris,
+                                                     @RequestParam(name = "unique", defaultValue = "false") Boolean isUnique) {
         log.info("Запрос статистики за период с {} по {}", startDate, endDate);
-        return service.GetStats(startDate, endDate, uris, isUnique);
+        return service.getStats(startDate, endDate, uris, isUnique);
     }
 }
