@@ -37,3 +37,4 @@ services:
       - stats-server
     environment:
       - stat-server.url=http://stats-server:9090
+
